@@ -1,7 +1,8 @@
 def substrings(string, dict)
   dict.reduce(Hash.new(0)) do |acc, word|
-    if string.downcase.scan(word).length > 0
-      acc[word] += string.downcase.scan(word).length
+    occurences = string.downcase.scan(word).length
+    unless occurences < 1
+      acc[word] = occurences
     end
     acc
   end
